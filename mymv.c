@@ -2,9 +2,10 @@
 #include <string.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include "mymv.h"
 
 
-int main(int argc, char* argv[])
+int mymv(int argc, char* argv[])
 {
 	/* make sure the number of arguments is true */
 	if(argc != 3) 

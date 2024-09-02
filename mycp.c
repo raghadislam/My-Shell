@@ -2,9 +2,10 @@
 #include <string.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include "mycp.h"
 
 
-int main(int argc, char* argv[])
+int mycp(int argc, char* argv[])
 {
 	/* make sure the number of arguments is true */
 	if(argc != 3) 

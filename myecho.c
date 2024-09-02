@@ -1,6 +1,7 @@
 #include <stdio.h>
+#include "myecho.h"
 
-int main(int argc, char* argv[])
+int myecho(int argc, char* argv[])
 {
 	/* print all arguments taken */
 	if(argv != NULL)
