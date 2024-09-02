@@ -1,6 +1,6 @@
-# My Custom Shell
+# My Shell
 
-A simple shell implemented in C that supports executing external commands, storing and exporting variables, and includes several built-in commands.
+a custom Unix-like shell implemented in C that provides a number of built-in commands, supports external commands execution and variables assigning and exporting.
 
 ## Features
 
@@ -19,6 +19,4 @@ Clone the repository and compile the shell:
 
 ```bash
 git clone https://github.com/your-username/my-custom-shell.git
-cd my-custom-shell
-gcc -o my_shell my_shell.c
-
+gcc -o myshell program.c external_command.c shell_variables.c
