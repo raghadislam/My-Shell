@@ -22,7 +22,7 @@ char *args[MAX_ARGS];
 shell_var ShellVariables[MAX_VAR];
 
 
-/* function to print the prompt */
+/* function to print the prompt with the standard shell format */
 void print_prompt(void)
 {
 	char* username;

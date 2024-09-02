@@ -33,7 +33,7 @@ int check_for_export(char* args[], shell_var ShellVariables[])
 }
 
 
-/* function to set the shell variable value */
+/* function to set the shell variables values */
 void set_var(char* var_name, char* var_val, shell_var ShellVariables[])
 {
 	for(int i = 0; i < var_cnt; i++)
@@ -78,7 +78,7 @@ int check_for_equal(char cmd[], shell_var ShellVariables[])
 }
 
 
-/* function to substitute each accesses variable with its value */
+/* function to substitute each accessed variable with its value */
 void substitute_var(char* args[], shell_var ShellVariables[])
 {
 	for(int i = 0; args[i] != NULL; i++)

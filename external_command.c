@@ -11,7 +11,7 @@ int execute_external(char cmd[], char* args[], char** environ)
 	/* fork the current process */
 	int ret_pid = fork();
 
-	/* check the return of fork */
+	/* check the return value of fork */
 	if(ret_pid < 0)
 	{
 		/* announce that fork failed */

@@ -3,7 +3,7 @@
 
 #define MAX_VAR	 50
 
-/* struct forthe shell variables */
+/* struct for the shell variables */
 typedef struct 
 {
 	char* name;
