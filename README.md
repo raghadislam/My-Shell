@@ -1,6 +1,6 @@
 # My Shell
 
-a custom Unix-like shell implemented in C that provides a number of built-in commands, supports external commands execution and variables assigning and exporting.
+a custom Unix-like shell implemented in C that provides a number of built-in commands, supports external commands execution, commands redirection, and variables assigning and exporting.
 
 ## Features
 
