@@ -42,6 +42,11 @@ void parse_command(char *cmd, char **args) {
         	args[i] = strsep(&cmd, " \t\r\n");
        		if (args[i] == NULL)
         		break;
+		if((strcmp(args[i],">") == 0) || (strcmp(args[i],"2>") == 0) || (strcmp(args[i],"<") == 0))
+		{
+			args[i] = NULL;
+			break;
+		}
         	if (*args[i] == '\0')
             		i--;
     }
@@ -64,6 +69,9 @@ int main(int argc, char*argv[])
 			printf("\n");
 			break;
 		}
+		
+		char cmd2[MAX_COMMAND_LENGTH];
+		strcpy(cmd2,cmd);
 
 		/* remove the newline character from the input */
 		int len = strlen(cmd);
@@ -91,7 +99,7 @@ int main(int argc, char*argv[])
 		}
 
 		/* execute the external command */
-		if(execute_external(cmd,args,environ)) return -1;
+		if(execute_external(cmd,args,environ,cmd2)) return -1;
 	}
 	return 0;
 }
