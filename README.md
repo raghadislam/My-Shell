@@ -49,3 +49,10 @@ mypwd
  myecho "Hello, world!"
  myech $VAR
 ```
+
+### redirection an input, output and error
+```
+ ls -l > list.txt
+ cat < script.txt
+ lssss 2> error.txt
+```
