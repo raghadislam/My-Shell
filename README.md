@@ -19,7 +19,11 @@ Clone the repository and compile the shell:
 To compile `MyShell` with its various source files, use the following `gcc` command: 
   ```
 git clone https://github.com/your-username/my-custom-shell.git
+```
+```
 gcc -o myshell *.c */*.c
+```
+```
 ./myshell
 ```
 ## Examples 
