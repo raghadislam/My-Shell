@@ -4,7 +4,7 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 #include "external_command.h"
-#include "redirection.h"
+#include "../redirection/redirection.h"
 
 
 int execute_external(char cmd[], char* args[], char** environ, char cmd2[])

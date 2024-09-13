@@ -19,7 +19,8 @@ Clone the repository and compile the shell:
 To compile `MyShell` with its various source files, use the following `gcc` command: 
   ```
 git clone https://github.com/your-username/my-custom-shell.git
-gcc -o myshell program.c external_command.c shell_variables.c
+gcc -o myshell *.c */*.c
+./myshell
 ```
 ## Examples 
 
@@ -41,18 +42,29 @@ mypwd
 ### Assigning and exporting a variable
 ```
  VAR=9
+```
+```
  export VAR
+```
+```
+ env
 ```
 
 ### Echoing a Message or a variable
 ```
  myecho "Hello, world!"
+```
+```
  myech $VAR
 ```
 
 ### redirection an input, output and error
 ```
  ls -l > list.txt
+ ```
+```
  cat < script.txt
+```
+```
  lssss 2> error.txt
 ```

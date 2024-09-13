@@ -10,7 +10,7 @@ int mycp(int argc, char* argv[])
 	/* make sure the number of arguments is true */
 	if(argc != 3) 
 	{
-		printf("error\n");
+		printf("error, usage: mycp <src> <dest>\n");
 		return -1;
 	}
 
@@ -19,14 +19,15 @@ int mycp(int argc, char* argv[])
 	char* dest = argv[2];		/* destination file path */
 	
 	int fd1 = open(src, O_RDONLY, 0644);	        	/* open the source file and save its descriptor */
-	int fd2 = open(dest, O_WRONLY|O_CREAT, 0644);		/* open the destination file and save its descriptor */
 
 	/* make sure that the source file exists */
 	if(fd1 == -1)
 	{
-		printf("error");
+		printf("error: source file doesn't exist\n");
 		return -1;
 	}
+
+	int fd2 = open(dest, O_WRONLY|O_CREAT, 0644);		/* open the destination file and save its descriptor */
 	int count;
 	
 	while( (count = read(fd1, buf, 100)) != 0)		/* read the source file */

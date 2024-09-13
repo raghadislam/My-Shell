@@ -6,8 +6,9 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 #include <pwd.h>
-#include "shell_variables.h"
-#include "external_command.h"
+#include "shell_variables/shell_variables.h"
+#include "internal_commands/internal_command.h"
+#include "external_commands/external_command.h"
 
 #define MAX_COMMAND_LENGTH 100
 #define MAX_ARGS 20
@@ -70,12 +71,14 @@ int main(int argc, char*argv[])
 			break;
 		}
 		
-		char cmd2[MAX_COMMAND_LENGTH];
-		strcpy(cmd2,cmd);
 
 		/* remove the newline character from the input */
 		int len = strlen(cmd);
 		cmd[len - 1] = 0;
+
+		/* copy the full command to save it and manipulate the original */
+		char cmd2[MAX_COMMAND_LENGTH];
+		strcpy(cmd2,cmd);
 
 		/* Ignore empty commands */
 		if(cmd[0] == 0) continue;
@@ -97,6 +100,9 @@ int main(int argc, char*argv[])
 		{
 			break;
 		}
+		
+		/* check for my internal shell commands */
+		if(check_for_internal_command(cmd, args) == 1) continue;
 
 		/* execute the external command */
 		if(execute_external(cmd,args,environ,cmd2)) return -1;
