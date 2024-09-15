@@ -36,5 +36,16 @@ int check_for_internal_command(char cmd[], char* argv[])
 		mypwd();
 		return 1;
 	}
+	else if(strcmp(cmd,"mycat") == 0)
+	{
+		mycat(argc, argv);
+		return 1;
+	}
+	else if(strcmp(cmd,"mygrep") == 0)
+	{
+		mygrep(argc, argv);
+		return 1;
+	}
+
 	return 0;
 }

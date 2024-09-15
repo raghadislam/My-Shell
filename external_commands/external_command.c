@@ -34,7 +34,7 @@ int execute_external(char cmd[], char* args[], char** environ, char cmd2[])
 		printf("error: command not found\n");
 		return -1;
 	}
-
+	return -1;
 }
 
 
