@@ -72,3 +72,8 @@ mypwd
 ```
  lssss 2> error.txt
 ```
+
+### piping commands
+```
+ ls -l | grep comm
+ ```
