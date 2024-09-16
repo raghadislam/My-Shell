@@ -6,6 +6,7 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 #include <pwd.h>
+#include "piping/pipe.h"
 #include "shell_variables/shell_variables.h"
 #include "internal_commands/internal_command.h"
 #include "external_commands/external_command.h"
@@ -36,23 +37,6 @@ void print_prompt(void)
 }
 
 
-/* function to parse the command and extract arguments */
-void parse_command(char *cmd, char **args) {
-
-    	for (int i = 0; i < MAX_ARGS; i++) {
-        	args[i] = strsep(&cmd, " \t\r\n");
-       		if (args[i] == NULL)
-        		break;
-		if((strcmp(args[i],">") == 0) || (strcmp(args[i],"2>") == 0) || (strcmp(args[i],"<") == 0))
-		{
-			args[i] = NULL;
-			break;
-		}
-        	if (*args[i] == '\0')
-            		i--;
-    }
-}
-
 /* environment variables */
 extern char **environ;
 
@@ -82,6 +66,13 @@ int main(int argc, char*argv[])
 
 		/* Ignore empty commands */
 		if(cmd[0] == 0) continue;
+
+		if(check_for_pipe(cmd))
+		{
+			/* exeute the piping commands then continue */
+			execute_piping(cmd);
+			continue;
+		}
 
 		/* check for '=' appearence */
 		if(check_for_equal(cmd, ShellVariables)) continue;
