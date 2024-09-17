@@ -5,7 +5,7 @@ a custom Unix-like shell implemented in C that provides a number of built-in com
 ## Features
 
 - **Execute External Commands:** Run standard Unix commands directly from the shell.
-- **Commands Redirection:** Redirect the commands input, output and error using `<` `>` `2>`.
+- **Commands Redirection:** Redirect the commands input, output and error using `<`, `>`, and `2>` respectively.
 - **Commands Piping:** Pipe the commands using the pipe operator `|`.
 - **Variable Assignment:** Assign and store variables using `VAR=value`.
 - **Export Variables:** Use the `export` command to make variables available as environment variables.
