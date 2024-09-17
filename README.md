@@ -14,6 +14,8 @@ a custom Unix-like shell implemented in C that provides a number of built-in com
   - `mypwd`: Print the current working directory (similar to `pwd`).
   - `mymv`: Move or rename files (similar to `mv`).
   - `myecho`: Display a line of text or the value of a variable (similar to `echo`).
+  - `mygrep`: Search for a pattern in a file (similar to `grep`).
+  - `mycat`: Concatenate and display file contents (similar to `cat`).
 
 ## Installation
 
