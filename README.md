@@ -32,6 +32,11 @@ gcc -o myshell *.c */*.c
 ```
 ## Examples 
 
+### wprk in batch mode
+```
+./myshell batch.txt
+```
+
 ### Copying a File
 ```
 mycp file1.txt file2.txt
@@ -81,3 +86,8 @@ mypwd
 ```
  ls -l | grep comm
  ```
+
+### execute parallel commands
+```
+cmd1 & cmd2 & cmd3
+```
