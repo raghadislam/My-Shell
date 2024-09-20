@@ -7,7 +7,7 @@
 #include "../redirection/redirection.h"
 
 
-int execute_external(char cmd[], char* args[], char** environ, char cmd2[])
+int execute_external(char cmd[], char *args[], char **environ, char cmd2[], int pid[], int pid_index, int is_parallel)
 {
 	/* fork the current process */
 	int ret_pid = fork();
@@ -22,8 +22,11 @@ int execute_external(char cmd[], char* args[], char** environ, char cmd2[])
 	else if(ret_pid > 0) /* in the parent process */
 	{
 		/* wait for the change in the status of the child */
-		int state;
-		wait(&state);
+		if (is_parallel == 0) {
+		    int state;
+		    wait(&state);
+		} else
+		    pid[pid_index] = ret_pid;
 		return 0;
 	}
 	else if(ret_pid == 0) /* in the child process */
@@ -35,6 +38,13 @@ int execute_external(char cmd[], char* args[], char** environ, char cmd2[])
 		return -1;
 	}
 	return -1;
+}
+
+void wait_for_processes(int pid[], int num_commands)
+{
+    for (int i = 0; i < num_commands; i++) {
+	waitpid(pid[i], NULL, 0);
+    }
 }
 
 

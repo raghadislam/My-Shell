@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <sys/wait.h>
 #include <stdlib.h>
+#include "../utils/utils.h"
 #include "pipe.h"
 
 
@@ -101,24 +102,6 @@ void execute_pipe_command(char *first_cmd[], char *second_cmd[]) {
 	/*wait for the first and second children */
 	waitpid(pid1, NULL, 0);
 	waitpid(pid2, NULL, 0);
-}
-
-/* function to parse the command and extract arguments */
-void parse_command(char *cmd, char **args) {
-
-	/* iterate till the last of the argumants */
-    	for (int i = 0; i < MAX_ARGS; i++) {
-        	args[i] = strsep(&cmd, " \t\r\n");
-       		if (args[i] == NULL)
-        		break;
-		if((strcmp(args[i],">") == 0) || (strcmp(args[i],"2>") == 0) || (strcmp(args[i],"<") == 0))
-		{
-			args[i] = NULL;
-			break;
-		}
-        	if (*args[i] == '\0')
-            		i--;
-    }
 }
 
 int is_empty(char cmd[])
