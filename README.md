@@ -32,7 +32,7 @@ gcc -o myshell *.c */*.c
 ```
 ## Examples 
 
-### wprk in batch mode
+### work in batch mode
 ```
 ./myshell batch.txt
 ```
