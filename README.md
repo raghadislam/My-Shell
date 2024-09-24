@@ -72,9 +72,9 @@ mypwd
 ```
 
 ### redirection an input, output and error
-```
+  ```bash
  ls -l > list.txt
- ```
+
 ```
  cat < script.txt
 ```
